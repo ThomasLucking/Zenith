@@ -27,14 +27,12 @@
             @forelse ($tasks as $task)
                 <li class="flex flex-col p-4 bg-slate-50 rounded-xl border border-slate-200 transition-all">
                     <div class="flex justify-between items-start">
-                        {{-- Dynamic styling based on completion status --}}
                         <span
                             class="font-bold text-slate-700 {{ $task->is_completed ? 'line-through text-slate-400' : '' }}">
                             {{ $task->title }}
                         </span>
 
                         <div class="flex gap-4">
-                            {{-- Toggle Done/Undone Form --}}
                             <form action="/tasks/{{ $task->id }}" method="POST">
                                 @csrf
                                 @method('PATCH')
